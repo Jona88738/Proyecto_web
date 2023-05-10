@@ -3,6 +3,7 @@
     class App {
         
         protected $controlador;
+        protected $method;
 
         function __construct(){
 
@@ -29,6 +30,17 @@
                 
                 
                 $this->controlador = new $this->controlador;
+               
+            }
+
+            if(isset($url[1])){
+
+                if(method_exists($this->controlador,$url[1])){
+                    
+                    $this->method = $url[1];
+                    $this->controlador->{$url[1]}(); 
+                }
+            }else{
                 $this->controlador->render();
             }
 

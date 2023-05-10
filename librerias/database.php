@@ -18,7 +18,7 @@
             
             $conn = new mysqli($this->host,$this->user,$this->pass,$this->base);
 
-            if($conn){
+            if(!$conn){
                 echo"conectado";
             }
         }

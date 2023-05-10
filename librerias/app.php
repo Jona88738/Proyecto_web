@@ -1,6 +1,8 @@
 <?php
 
     class App {
+        
+        protected $controlador;
 
         function __construct(){
 
@@ -17,6 +19,18 @@
                 return false;
             }
 
+            
+            if(file_exists('controladores/'.$url[0].'.php')){
+
+                require_once 'controladores/'.$url[0].'.php';
+                
+
+                $this->controlador = ucwords($url[0]);
+                
+                
+                $this->controlador = new $this->controlador;
+                $this->controlador->render();
+            }
 
 
 
@@ -27,7 +41,7 @@
             if(isset($_GET['url'])){
 
                 
-                $url =  rtrim($url, '/');   //quitamos los '/' que esten de mas al final de la cadena url
+                $url =  rtrim($_GET['url'], '/');   //quitamos los '/' que esten de mas al final de la cadena url
                 $url = explode('/', $url);  //dividimos la cadena $url separada por '/'
                 return $url;
             }

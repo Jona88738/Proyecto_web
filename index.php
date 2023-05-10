@@ -1,5 +1,7 @@
 <?php
 
+    require_once 'config.php';
+
     require_once 'librerias/app.php';
 
     require_once 'librerias/controlador.php';

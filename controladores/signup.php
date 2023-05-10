@@ -10,6 +10,10 @@
             $this->view->render('signup');
         }
 
+        public function newuser(){
+            
+        }
+
     }
 
 

@@ -10,6 +10,10 @@
         public function render(){
             $this->view->render('login');
         }
+
+        public function authenticate(){
+
+        }
     }
 
 

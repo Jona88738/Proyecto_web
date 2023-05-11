@@ -5,7 +5,7 @@
         private $user;
         private $pass;
         private $base;
-
+        
         function __construct(){
             $this->host = constant('HOST');
             $this->user = constant('USER');
@@ -18,8 +18,11 @@
             
             $conn = new mysqli($this->host,$this->user,$this->pass,$this->base);
 
-            if(!$conn){
-                echo"conectado";
+           
+            
+            if($conn){
+                //echo"conectado";
+                return $conn;
             }
         }
     }

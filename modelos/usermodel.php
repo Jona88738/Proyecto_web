@@ -105,17 +105,43 @@ if($consulta){
 
 
             
-            print_r($para);
-    //include('../conn.php');
-    /*
-    $id = $_GET['id'];
-    $nombre = $_GET['nom'];
-    $color = $_GET['col'];
-    $precio = $_GET['pre'];
-    //$cantidad = $_GET['cant'];
-    */
+            
+   
 
     ?>
+        <link  type="text/css" rel="stylesheet" href="../../../../../public/css/estilo-almacen.css">
+
+
+
+        <header class="cabecera">
+
+        
+        <div id="cabecera-logo">
+         
+            <div id="contenedor-logo"> 
+        <img src="../imagenes/cuarzo.png" width="50%" height="50vh">  
+        </br>
+        <h1 id="cabecera-titulo"> IKEA</h1>
+        </div>
+
+        <div id="contenedor-logo2">
+        
+        <nav>
+            <ul class="lista">
+                <li><a href="../../../../../cuenta">Tabla</a></li>
+                
+                <li> <a href="../../../../../">salir</a></li>
+            </ul>
+        </nav>
+    </div>
+
+        </div>
+</header>
+
+
+
+        <main id="main-body">
+        <div class="contenedor-consulta">
     <form action = "../../../../../editarUsuario/actualizarEditar" method="POST">
 
     <table border=1>
@@ -153,6 +179,8 @@ if($consulta){
         
     </table>
 
+        </div>
+        </main>
     </form>
     <?php
         }

@@ -8,7 +8,7 @@
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.111.3">
     <title>Top navbar example · Bootstrap v5.3</title>
-
+    <link href="public/css/tabla.css" rel="stylesheet">
     <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/navbar-static/">
 
     
@@ -18,6 +18,10 @@
 <link href="public/assets/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <style>
+
+        * {
+            background: black;
+        }
       .bd-placeholder-img {
         font-size: 1.125rem;
         text-anchor: middle;
@@ -95,7 +99,7 @@
     <!-- Custom styles for this template -->
     <link href="public/css/navbar-static.css" rel="stylesheet">
   </head>
-  <body>
+  <body id="main-body">
     <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
       <symbol id="check2" viewBox="0 0 16 16">
         <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
@@ -174,14 +178,14 @@
   </div>
 </nav>
 
-<main class="container">
+<main id="main-body">
 
 
 
 
 
       <?php
-        print_r($this->arr);
+        //print_r($this->arr);
           require_once 'modelos/usermodel.php';
           $user = new  Usermodel();
           $user->editar();

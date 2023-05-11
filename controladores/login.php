@@ -17,11 +17,12 @@
         public function authenticate(){
 
             $username = $_POST['nombre'];
-            $password = $_POST['contraseña'];
+            
+            $password =   $_REQUEST['contra']; //$_POST['contra'];
 
             $user = $this->inicio->login($username, $password);
 
-            echo $username;
+            echo $username.$password;
         }
     }
 

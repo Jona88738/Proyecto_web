@@ -10,6 +10,9 @@
 
             require 'views/'.$nombre.'.php';
         }
+        
+
+        
     }
 
 

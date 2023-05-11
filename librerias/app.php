@@ -38,7 +38,19 @@
                 if(method_exists($this->controlador,$url[1])){
                     
                     $this->method = $url[1];
-                    $this->controlador->{$url[1]}(); 
+
+                    if(isset($url[2])){
+
+                        $arr = [];
+                        for($i = 2; $i<count($url);$i++){
+                            $arr[$i] = $url[$i];
+                        }
+                        $this->controlador->{$url[1]}($arr); 
+                    }else{
+                        $this->controlador->{$url[1]}(); 
+                    }
+
+                    
                 }
             }else{
                 $this->controlador->render();

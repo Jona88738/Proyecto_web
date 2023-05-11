@@ -16,7 +16,7 @@
         public function eliminar($parametro){
 
             
-            echo "el numero es".$parametro;
+            //echo "el numero es".$parametro;
             $this->inicio->eliminarUsuario($parametro);
         }
     }

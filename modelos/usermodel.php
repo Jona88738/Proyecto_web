@@ -14,13 +14,7 @@
             <link href="public/css/tabla.css" rel="stylesheet">
             <main id="main-body">
         <div class="contenedor-consulta">
-        <form action="consultas-almacen/buscar-producto.php" method="post">
-</br>
-    <label>Ingresa el id a buscar: </label>
-    <input type="text" name="id">
-    <button>Buscar</button>
-
-    </form>
+        
 </br>
     <table border=1>
         <tr>
@@ -52,7 +46,7 @@
                 <td><?php echo  $mostrar[4] ?></td>
                 
                 <td>
-<button onclick="location.href='editarUsuario/editar/<?php echo $mostrar['1']?>/<?php echo $mostrar['2']?> /<?php echo $mostrar['3']?>?  '">Editar</button>
+<button onclick="location.href='editarUsuario/editar/<?php echo$mostrar[0] ?>/<?php echo $mostrar[1]?>/<?php echo $mostrar['2']?>/<?php echo$mostrar['3']?>'">Editar</button>
     <button onclick="location.href='cuenta/eliminar/<?php echo $mostrar[0]; ?> '">Eliminar</button>
                 </td>
             </tr>
@@ -85,9 +79,9 @@
             
 
 
+            print_r($parametro);
 
-
-$consulta = mysqli_query($this->db->connect(),"DELETE FROM usuarios  where id like $parametro");
+$consulta = mysqli_query($this->db->connect(),"DELETE FROM usuarios  where id like $parametro[2]");
 
 if($consulta){
     header("location: ../../cuenta");
@@ -122,36 +116,36 @@ if($consulta){
     */
 
     ?>
-    <form action = "actualizar-producto.php" method="post">
+    <form action = "../../../../../editarUsuario/actualizarEditar" method="POST">
 
     <table border=1>
         <tr>
             <td>Ingresa tus Datos:</td>
-            <td> <input type="text" name="id" style="visibility:hidden" value=" <?=$id ?>"></td>
+            <td> <input type="text" name="id" style="visibility:hidden" value=" <?=$para[2] ?>"></td>
         </tr>
 
         <tr>
             <td>Alias:</td>
-            <td> <input type="text" name="nombre" value=" <?=$nombre ?>" > </td>
+            <td> <input type="text" name="alias" value=" <?=$para[3] ?>" > </td>
         </tr>
 
         <tr>
             <td>Correo:</td>
-            <td> <input type="text" name="color" value=" <?=$color ?>"></td>
+            <td> <input type="text" name="correo" value=" <?=$para[4] ?>"></td>
 
         </tr>
 
         <tr>
             <td>Contraseña:</td>
-            <td> <input type="text" name="precio" value=" <?=$precio ?>"></td>
+            <td> <input type="text" name="contra" value=" <?=$para[5] ?>"></td>
 
         </tr>
 
         
 
         <tr>
-            <td> <button onclick="location.href='../almacen.php'">Regresar</button></td>
-            <td> <button onclick="location.href='actualizar-producto.php'"> Actualizar </button></td>
+            <td> <button onclick="location.href='../cuenta'">Regresar</button></td>
+            <td> <button onclick="location.href='../main'"> Actualizar </button></td>
                 
                 
             
@@ -161,6 +155,25 @@ if($consulta){
 
     </form>
     <?php
+        }
+
+
+        public function updatebase($id,$alias,$correo,$contra){
+
+
+                $aliass = trim($alias);
+                $correoo = trim($correo);
+                $contraa = trim($contra);
+                
+
+$consulta = mysqli_query($this->db->connect(), "UPDATE usuarios set alias='$aliass',correo='$correoo',contrasena='$contraa' where id like $id ");
+
+if($consulta){
+    header("location: ../cuenta");
+
+}else{
+    echo "error";
+}
         }
 
     }

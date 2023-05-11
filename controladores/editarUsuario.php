@@ -15,6 +15,18 @@
            $this->model->editar($para1);
         }
 
+        public function actualizarEditar(){
+            
+            $id = $_POST['id'];
+            $alias = $_POST['alias'];
+            $correo = $_POST['correo'];
+            $contra = $_POST['contra'];
+
+            $this->model->updatebase($id,$alias,$correo,$contra);
+            //echo "entro".$id;
+            
+        }
+
 
     }
 
